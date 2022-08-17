@@ -68,7 +68,7 @@ class TelloNode():
         self.node.get_logger().info('Tello: Connecting to drone')
 
         self.tello = Tello()
-        self.tello.connect()
+        self.tello.connect(False)
 
         self.node.get_logger().info('Tello: Connected to drone')
 
