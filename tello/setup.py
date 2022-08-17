@@ -14,6 +14,7 @@ setup(
         ('share/ament_index/resource_index/packages', ['resource/tello']),
         ('share/tello', ['package.xml', 'resource/ost.txt', 'resource/ost.yaml']),
         (os.path.join('share', package_name), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name), glob('resource/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

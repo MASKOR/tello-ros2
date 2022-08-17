@@ -37,7 +37,7 @@ class TelloNode():
         self.node.declare_parameter('tf_base', 'map')
         self.node.declare_parameter('tf_drone', 'drone')
         self.node.declare_parameter('tf_pub', True)
-        self.node.declare_parameter('camera_info_file', '')
+        self.node.declare_parameter('camera_info_file', '$(find tello)/resources/ost.yaml')
 
         # Get parameters
         self.connect_timeout = float(self.node.get_parameter('connect_timeout').value)
