@@ -36,7 +36,7 @@ class TelloNode():
         self.node.declare_parameter('tello_ip', '192.168.10.1')
         self.node.declare_parameter('tf_base', 'map')
         self.node.declare_parameter('tf_drone', 'drone')
-        self.node.declare_parameter('tf_pub', False)
+        self.node.declare_parameter('tf_pub', True)
         self.node.declare_parameter('camera_info_file', '')
 
         # Get parameters
@@ -128,7 +128,11 @@ class TelloNode():
                     t.child_frame_id = self.tf_drone
                     t.transform.translation.x = 0.0
                     t.transform.translation.y = 0.0
-                    t.transform.translation.z = (self.tello.get_barometer()) / 100.0
+                    try:
+                        baro = self.tello.get_barometer() / 100.0
+                    except:
+                        baro = 0.0
+                    t.transform.translation.z = baro
                     self.tf_broadcaster.sendTransform(t)
                 
                 # IMU
