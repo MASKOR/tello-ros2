@@ -10,14 +10,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='tentone',
-    maintainer_email='tentone@outlook.com',
+    maintainer='tentone','Patrick Wiesen',
+    maintainer_email='tentone@outlook.com','wiesen@fh-aachen.de',
     description='DJI Tello control package for ROS 2',
     license='MIT',
     tests_require=[],
     entry_points={
         'console_scripts': [
-            'tello = tello.node:main'
+            'tello_node = tello.tello_node:main'
         ],
     },
 )
